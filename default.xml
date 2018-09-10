@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <remote fetch="git://git.yoctoproject.org" name="yocto" sync-j="4" />
+    <remote fetch="git://git.openembedded.org" name="openembedded" sync-j="4" />
+    <remote fetch="http://code.ossystems.com.br" name="ossystems" sync-j="4" />
+    <remote fetch="git://github.com/nandojve" name="public" sync-j="4" />
+    <remote fetch="git://bitbucket.com/nandojve" name="private" sync-j="4" />
+
+    <default revision="invalidRevision" sync-j="4"/>
+
+    <project name="bitbake" path="sources/bitbake" remote="public" revision="1.32-contrib"/>
+    <project name="openembedded-core" path="sources/openembedded-core" remote="public" revision="morty-contrib"/>
+    <project name="meta-openembedded" path="sources/meta-openembedded" remote="public" revision="morty-contrib" />
+    <project name="meta-virtualization" path="sources/meta-virtualization" remote="public" revision="morty-contrib" />
+    <project name="meta-security" path="sources/meta-security" remote="yocto" revision="morty" />
+    <project name="meta-intel" path="sources/meta-intel" remote="yocto" revision="morty"/>
+    <project name="meta-mono" path="sources/meta-mono" remote="yocto" revision="master" />
+    <project name="meta-telephony" path="sources/meta-telephony" remote="public" revision="morty-contrib"/>
+
+    <project name="meta-ossystems-base" path="sources/meta-ossystems-base" remote="ossystems" revision="morty" />
+    <project name="ossystems-yocto-base-scripts" path="sources/base" remote="ossystems" revision="master" >
+        <copyfile dest="setup-environment" src="setup-environment"/>
+    </project>
+    <project name="apps/ye" path="sources/ye" remote="ossystems" revision="master"/>
+    <project name="osyis" path="sources/osyis" remote="ossystems" revision="master"/>
+
+    <project name="yocto-config" path="sources/conf/tools" remote="public" revision="master"/>
+    <project name="yocto-platform" path="sources/conf/repo" remote="public" revision="master"/>
+    <project name="meta-falcon" path="sources/meta-falcon" remote="public" revision="master"/>
+    <project name="jenkins-job-deploy-config" path="sources/conf/jenkins/job-deploy-config" remote="public" revision="master">
+            <copyfile dest="build.sh" src="build.sh"/>
+            <copyfile dest="clone-mirror.sh" src="clone-mirror.sh"/>
+            <copyfile dest="extract.sh" src="extract.sh"/>
+            <copyfile dest="repo-backup.sh" src="repo-backup.sh"/>
+            <copyfile dest="repo-patch-apply.sh" src="repo-patch-apply.sh"/>
+            <copyfile dest="update_recipe.py" src="update_recipe.py"/>
+        </project>
+</manifest>
